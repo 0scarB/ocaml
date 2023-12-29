@@ -373,6 +373,26 @@ val take : int -> 'a list -> 'a list
     @since 5.3
 *)
 
+val take2 : int -> 'a list -> 'a list
+(** [take n l] returns the prefix of [l] of length [n],
+    or [l] itself if [n > length l].
+
+    [n] must be nonnegative.
+
+    @raise Invalid_argument if [n] is negative.
+    @since 5.3
+*)
+
+val take3 : int -> 'a list -> 'a list
+(** [take n l] returns the prefix of [l] of length [n],
+    or [l] itself if [n > length l].
+
+    [n] must be nonnegative.
+
+    @raise Invalid_argument if [n] is negative.
+    @since 5.3
+*)
+
 val drop : int -> 'a list -> 'a list
 (** [drop n l] returns the suffix of [l] after [n] elements,
     or [[]] if [n > length l].

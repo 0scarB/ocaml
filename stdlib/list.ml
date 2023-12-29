@@ -297,6 +297,28 @@ let take n l =
   if n < 0 then invalid_arg "List.take";
   aux 0 [] l
 
+let rec take2_loop n l =
+  if n = 0 then []
+  else
+    match l with
+    | [] -> []
+    | x::l -> x::(take2_loop (n - 1) l)
+
+let take2 n l =
+  if n < 0 then invalid_arg "List.take"
+  else take2_loop n l
+
+let[@tail_mod_cons] rec take3_loop n l =
+  if n = 0 then []
+  else
+    match l with
+    | [] -> []
+    | x::l -> x::(take3_loop (n - 1) l)
+
+let take3 n l =
+  if n < 0 then invalid_arg "List.take"
+  else take3_loop n l
+
 let drop n l =
   let rec aux i = function
     | _x::l when i < n -> aux (i + 1) l
